@@ -1,0 +1,46 @@
+html {
+  background-color: #1a1a1a;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .main-container > div {
+  background-color: rgb(231, 184, 122);
+  color: black;
+  font-weight: 500;
+} */
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(53, 52, 52);
+  color: white;
+  box-shadow: -5px 5px 5px rgb(134, 129, 129);
+}
+
+.box p {
+  margin-top: 1rem;
+}
+
+.title {
+  padding: 2rem 0 1rem 0;
+  color: white;
+}
+.sub-title {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#canvas {
+  background-color: white;
+  border: 1px solid gray;
+}

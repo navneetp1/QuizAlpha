@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizAlpha</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div>
+        <a href="/" class="button is-dark"><- Return to main menu</a>
+      </div>
+      <h1 class="title">Practice</h1>
+      <div>
+        <canvas id="canvas" width="200" height="200"></canvas>
+      </div>
+
+      <div style="padding: 1rem">
+        {% if isCorrect %} {% if isCorrect == 'YES' %}
+        <p style="font-size: 0.75rem; color: cornsilk; text-align: center">
+          That's correct!. Here's the next one:
+        </p>
+        {% else %}
+        <p style="font-size: 0.75rem; color: cornsilk; text-align: center">
+          Incorrect! Here's the next one
+        </p>
+        {% endif %} {% endif %}
+        <p
+          style="
+            margin-bottom: 0.3rem;
+            margin-top: 0.5rem;
+            color: blanchedalmond;
+            text-align: center;
+          "
+        >
+          Write an Uppercase "{{letter.lower()}}"
+        </p>
+      </div>
+
+      <div>
+        <form id="practice-form" action="practice" method="POST">
+          <input id="pixels" name="pixels" type="hidden" />
+          <input
+            class="letter"
+            name="letter"
+            value="{{letter}}"
+            type="hidden"
+          />
+          <button
+            type="button"
+            class="button is-success"
+            onclick="practiceAction()"
+          >
+            Check my answer
+          </button>
+          <button type="button" class="button is-info" onclick="resetCanvas()">
+            Clear
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        startCanvas();
+      });
+    </script>
+  </body>
+</html>
+
+{% endblock %}

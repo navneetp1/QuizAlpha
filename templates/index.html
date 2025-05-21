@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizAlpha</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="title">QuizAlpha</h1>
+
+      <h3 class="sub-title">
+        Handwritten Alphabet Recognition with TensorFlow CNN
+      </h3>
+      <div class="box">
+        <a class="button is-dark is-info" href="/practice">Practice</a>
+        <p style="padding-left: 20px; padding-right: 20px">
+          Practice writing alphabets here
+        </p>
+      </div>
+      <div class="box">
+        <a class="button is-dark is-info" href="/add-data">Add Data</a>
+        <p>Improve the model by providing data</p>
+      </div>
+    </div>
+  </body>
+</html>
+
+{% endblock %}
