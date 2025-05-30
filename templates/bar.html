@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizAlpha</title>
+  </head>
+  <body>
+    <div class="bar">
+      <div>
+        <a href="/" class="button is-dark"><- Return to main menu</a>
+      </div>
+      <h1 class="title">Frequency of letters in the training dataset</h1>
+      <img src="../static/{{ url }}" alt="" />
+    </div>
+  </body>
+</html>
+
+{% endblock %}

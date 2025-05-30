@@ -1,21 +1,29 @@
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
+import os
 
-keys = np.load('data/keys.npy')
+matplotlib.use("Agg")
 
-data = {}
-for key in keys:
-    data[key] = data.get(key, 0) + 1
+def createPlot(dataPath, path):
 
-data = sorted(data.items(), key = lambda x: x[1], reverse=True)
+    keys = np.load(dataPath)
 
-x = [d[0] for d in data]
-y = [d[1] for d in data]
+    data = {}
+    for key in keys:
+        data[key] = data.get(key, 0) + 1
 
-print("No of classes:", len(data))
-print("No of data points:", len(keys))
+    data = sorted(data.items(), key = lambda x: x[1], reverse=True)
 
-plt.bar(x,y)
-plt.plot()
+    x = [d[0] for d in data]
+    y = [d[1] for d in data]
 
-plt.show()
+    # print("No of classes:", len(data))
+    # print("No of data points:", len(keys))
+
+    plt.bar(x,y)
+    plt.plot()
+
+    # plt.show()
+    plt.savefig(path)
+    plt.close()

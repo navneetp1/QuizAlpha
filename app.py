@@ -4,6 +4,12 @@ from random import choice
 import numpy as np
 # bidict - both way dictionary
 from tensorflow import keras
+from stats.dataDist import createPlot
+import os
+import matplotlib
+
+
+matplotlib.use('Agg')
  
 
 ENCODER = bidict({'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8,
@@ -14,12 +20,28 @@ ENCODER = bidict({'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8
 app = Flask(__name__)
 app.secret_key = 'abcdefg'
 
+STATIC_DIR = os.path.join(app.static_folder, 'images')
+os.makedirs(STATIC_DIR, exist_ok=True)
+
+
 # overview of app
 
 @app.route('/')
 def index():
     session.clear()
     return render_template("index.html")
+
+@app.route('/plot')
+def plot():
+    dataPath = os.path.join('data', 'keys.npy')
+    fileName = 'barplot.png'
+    plotPath = os.path.join(STATIC_DIR, fileName)
+
+    createPlot(dataPath, plotPath)
+
+    return render_template('bar.html', url=f"images/{fileName}")
+
+
 
 # 1. Add data to be used for training - get post
 @app.route("/add-data", methods=['GET'])

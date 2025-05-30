@@ -24,6 +24,7 @@ html {
   background-color: rgb(53, 52, 52);
   color: white;
   box-shadow: -5px 5px 5px rgb(134, 129, 129);
+  min-width: 300px;
 }
 
 .box p {
@@ -43,4 +44,12 @@ html {
 #canvas {
   background-color: white;
   border: 1px solid gray;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
